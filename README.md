@@ -2,6 +2,8 @@
 
 https://github.com/coding-to-music/taylor-mongo-ecommerce
 
+https://taylor-mongo-ecommerce.herokuapp.com/
+
 By Michael Barry https://github.com/MB13534
 
 https://taylor-ecommerce.herokuapp.com/
@@ -36,7 +38,7 @@ MONGO_URI="mongodb+srv://<userid>:<password>@cluster0.zadqe.mongodb.net/TaylorEc
 ## Deploy to Heroku
 
 ```java
-heroku create
+heroku create taylor-mongo-ecommerce
 
 heroku config:set MONGO_URI="mongodb+srv://<userid>:<password>@cluster0.zadqe.mongodb.net/TaylorEcommerce?retryWrites=true&w=majority"
 ```
