@@ -22,6 +22,7 @@ Modify .env
 
 ```java
 MONGO_URI="mongodb+srv://<userid>:<password>@cluster0.zadqe.mongodb.net/TaylorEcommerce?retryWrites=true&w=majority"
+JWT_SECRET="somethingComplicated"
 ```
 
 ```java
@@ -35,10 +36,42 @@ MONGO_URI="mongodb+srv://<userid>:<password>@cluster0.zadqe.mongodb.net/TaylorEc
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
 ```
 
+## Import data
+
+```java
+npm run data:destroy
+npm run data:import
+```
+
+Output:
+
+```java
+> taylor-ecommerce@1.0.0 data:import
+> node backend/seeder
+
+(node:41162) Warning: Accessing non-existent property 'MongoError' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+MongoDB connected: cluster0-shard-00-00.zadqe.mongodb.net
+Data has been imported!
+```
+
 ## Deploy to Heroku
 
 ```java
 heroku create taylor-mongo-ecommerce
 
 heroku config:set MONGO_URI="mongodb+srv://<userid>:<password>@cluster0.zadqe.mongodb.net/TaylorEcommerce?retryWrites=true&w=majority"
+heroku config:set JWT_SECRET="somethingComplicated"
+
+heroku logs --tail
+```
+
+## Users and Logins
+
+sample users are created as part of the data seeding process
+
+View the users and passwords in
+
+```java
+/backend/data/user.js
 ```
